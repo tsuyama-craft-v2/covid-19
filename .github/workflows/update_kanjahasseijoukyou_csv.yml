@@ -1,0 +1,48 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Update kanjahasseijoukyou.csv
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  schedule:
+    - cron: '0 13 * * 6'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a set of commands using the runners shell
+      - name: Get csv
+        run: |
+          curl https://okayama-pref.dataeye.jp/resource_download/10113 > docs/data/kanjahasseijoukyou.csv
+          curl https://okayama-pref.dataeye.jp/resource_download/10113 > public/data/kanjahasseijoukyou.csv
+          iconv -f SHIFT-JIS -t UTF-8 docs/data/kanjahasseijoukyou.csv -o docs/data/kanjahasseijoukyou.csv
+          iconv -f SHIFT-JIS -t UTF-8 public/data/kanjahasseijoukyou.csv -o public/data/kanjahasseijoukyou.csv
+      
+      - name: Commit and Push
+        run: |
+          git config --local user.email "82013625+tsuyama-craft@users.noreply.github.com"
+          git config --local user.name "tsuyama-craft"
+          git add docs/data
+          git add public/data
+          git commit -m "Update csv"
+          git config pull.rebase false
+          git pull origin master
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
