@@ -25,3 +25,5 @@ pnpm-debug.log*
 #Electron-builder output
 /dist_electron
 node_modules
+docs/js
+docs/css
