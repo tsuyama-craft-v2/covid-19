@@ -17,7 +17,7 @@
           <button
             v-if="msg == '感染者数'"
             type="button"
-            class="municipalities"
+            class="ui button municipalities"
             @click="$router.push('/Detailspage_munic')"
           >
             市町村ごとの感染者数
@@ -25,7 +25,7 @@
           <button
             v-if="msg == '感染者数'"
             type="button"
-            class="btn_Detailes"
+            class="ui button btn_Detailes"
             @click="$router.push('/Detailspage_tsuyama')"
           >
             詳細
