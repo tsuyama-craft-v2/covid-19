@@ -1,6 +1,6 @@
 <template>
   <form>
-    <div class="box27">
+    <div class="box27">np
       <span class="box-title">{{ msg }}</span>
 
       <input
@@ -20,7 +20,7 @@
             class="ui button municipalities"
             @click="$router.push('/Detailspage_munic')"
           >
-            市町村ごとの感染者数
+            市町村ごとの感染者数a
           </button>
           <button
             v-if="msg == '感染者数'"
