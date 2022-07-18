@@ -1,15 +1,10 @@
 <template>
   <form>
-    <div class="box27">np
+    <div class="box27">
       <span class="box-title">{{ msg }}</span>
 
-      <input
-        type="radio"
-        :id="tsuyamaId"
-        name="TAB"
-        class="tab-switch"
-        checked="checked"
-      /><label :for="tsuyamaId" class="tab-label">津山</label>
+      <div :id="tsuyamaId" name="TAB" class="three ui buttons" />
+      <button :for="tsuyamaId" class="ui button active">津山</button>
       <div class="text">
         {{ infected.tsuyama }}<br />
         <p class="ueo">{{ infected.data3 }}</p>
@@ -20,7 +15,7 @@
             class="ui button municipalities"
             @click="$router.push('/Detailspage_munic')"
           >
-            市町村ごとの感染者数a
+            市町村ごとの感染者数
           </button>
           <button
             v-if="msg == '感染者数'"
@@ -33,7 +28,7 @@
         </div>
       </div>
 
-      <input type="radio" :id="okayamaId" name="TAB" class="tab-switch" /><label
+      <input type="radio" :id="okayamaId" name="TAB" class="ui button" /><label
         :for="okayamaId"
         class="tab-label"
         >岡山</label
@@ -61,7 +56,7 @@
         </div>
       </div>
 
-      <input type="radio" :id="zenkokuId" name="TAB" class="tab-switch" /><label
+      <input type="radio" :id="zenkokuId" name="TAB" class="ui button" /><label
         :for="zenkokuId"
         class="tab-label"
         >全国</label
