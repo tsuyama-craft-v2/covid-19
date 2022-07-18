@@ -1,7 +1,5 @@
 module.exports = {
-    configureWebpack: {
-        devtool: 'inline-source-map'
-    },
-    publicPath: './',
-    outputDir: 'docs'
-}
+  publicPath: process.env.NODE_ENV === "production"
+  ? '/weather-app/' 
+  : '/'
+};
