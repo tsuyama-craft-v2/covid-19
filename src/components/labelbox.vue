@@ -1,5 +1,64 @@
 <template>
   <form>
+    <div class="containar">
+      <section class="row">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click="toggleTsuyama()"
+          >
+            津山
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click="toggleOkayama()"
+          >
+            岡山
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click="toggleZenkoku()"
+          >
+            全国
+          </button>
+        </div>
+      </section>
+      <div class="containar" v-if="kansensya.tsuyama">
+        {{ infected.tsuyama }}<br />
+        <p class="ueo">{{ infected.data3 }}</p>
+      </div>
+      <div class="containar" v-if="kansensya.okayama">
+        {{ infected.okayama }}<br />
+        <p class="ueo">{{ infected.data2 }}</p>
+      </div>
+      <div class="containar" v-if="kansensya.zenkoku">
+        {{ infected.zenkoku }}<br />
+        <p class="ueo">{{ infected.data1 }}</p>
+      </div>
+
+      <div style="text-align: left" class="btn" v-if="kansensya.tsuyama||kansensya.okayama">
+        <button
+          v-if="msg == '感染者数'"
+          type="button"
+          class="municipalities"
+          @click="$router.push('/Detailspage_munic')"
+        >
+          市町村ごとの感染者数
+        </button>
+        <button
+          v-if="msg == '感染者数'"
+          type="button"
+          class="btn_Detailes"
+          @click="$router.push('/Detailspage_tsuyama')"
+        >
+          詳細
+        </button>
+      </div>
+    </div>
+    
     <div class="box27">
       <span class="box-title">{{ msg }}</span>
 
@@ -77,6 +136,15 @@
 <script>
 export default {
   name: "labelbox",
+  data() {
+    return {
+      kansensya: {
+        tsuyama: false,
+        okayama: false,
+        zenkoku: false,
+      },
+    };
+  },
   computed: {
     zenkokuId: function () {
       return this.idname + "zenkoku";
@@ -86,6 +154,23 @@ export default {
     },
     tsuyamaId: function () {
       return this.idname + "tsuyama";
+    },
+  },
+  methods: {
+    toggleTsuyama() {
+      this.kansensya.tsuyama = true;
+      this.kansensya.okayama = false;
+      this.kansensya.zenkoku = false;
+    },
+    toggleOkayama() {
+      this.kansensya.tsuyama = false;
+      this.kansensya.okayama = true;
+      this.kansensya.zenkoku = false;
+    },
+    toggleZenkoku() {
+      this.kansensya.tsuyama = false;
+      this.kansensya.okayama = false;
+      this.kansensya.zenkoku = true;
     },
   },
   props: {
