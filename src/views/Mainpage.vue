@@ -3,6 +3,11 @@
     <mainmenu judge=0 />
     <h1>新型コロナウイルス情報</h1>
     <div class="flex" v-if="readyToshowMainPage">
+      
+
+
+
+
       <div class="box">
         <labelbox class="box1" msg="感染者数" idname="kansen" :infected="infected" />
       </div>
