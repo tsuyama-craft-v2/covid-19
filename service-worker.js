@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/weather-app/precache-manifest.fce530c84b074b158100ddded736aa22.js"
+  "/weather-app/precache-manifest.a58a9ce378bcadc5e7db71e76b337e1f.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "craft"});
