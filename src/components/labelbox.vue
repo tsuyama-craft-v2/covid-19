@@ -1,64 +1,65 @@
 <template>
-  <form>
-    <div class="containar">
-      <section class="row">
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <button
-            type="button"
-            class="btn btn-primary"
-            @click="toggleTsuyama()"
-          >
-            津山
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            @click="toggleOkayama()"
-          >
-            岡山
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            @click="toggleZenkoku()"
-          >
-            全国
-          </button>
-        </div>
-      </section>
+  <div class="containar-lg">
+    <section class="row">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary" @click="toggleTsuyama()">
+          津山
+        </button>
+        <button type="button" class="btn btn-primary" @click="toggleOkayama()">
+          岡山
+        </button>
+        <button type="button" class="btn btn-primary" @click="toggleZenkoku()">
+          全国
+        </button>
+      </div>
+    </section>
+    <section class="row">
+      <section class="containar">感染者数</section>
+    </section>
+    <section class="row">
       <div class="containar" v-if="kansensya.tsuyama">
-        {{ infected.tsuyama }}<br />
-        <p class="ueo">{{ infected.data3 }}</p>
+        {{ labelvalue.infected_tsuyama }}<br />
+        <p class="ueo">{{ labelvalue.infected_data3 }}</p>
       </div>
       <div class="containar" v-if="kansensya.okayama">
-        {{ infected.okayama }}<br />
-        <p class="ueo">{{ infected.data2 }}</p>
+        {{ labelvalue.infected_okayama }}<br />
+        <p class="ueo">{{ labelvalue.infected_data2 }}</p>
       </div>
       <div class="containar" v-if="kansensya.zenkoku">
-        {{ infected.zenkoku }}<br />
-        <p class="ueo">{{ infected.data1 }}</p>
+        {{ labelvalue.infected_zenkoku }}<br />
+        <p class="ueo">{{ labelvalue.infected_data1 }}</p>
       </div>
+    </section>
+    <section class="row">
+      <section class="containar">死者数</section>
+    </section>
 
-      <div style="text-align: left" class="btn" v-if="kansensya.tsuyama||kansensya.okayama">
-        <button
-          v-if="msg == '感染者数'"
-          type="button"
-          class="municipalities"
-          @click="$router.push('/Detailspage_munic')"
-        >
-          市町村ごとの感染者数
-        </button>
-        <button
-          v-if="msg == '感染者数'"
-          type="button"
-          class="btn_Detailes"
-          @click="$router.push('/Detailspage_tsuyama')"
-        >
-          詳細
-        </button>
-      </div>
+    <div
+      style="text-align: left"
+      class="btn"
+      v-if="kansensya.tsuyama || kansensya.okayama"
+    >
+      <button
+        v-if="msg == '感染者数'"
+        type="button"
+        class="btn btn-outline-primary"
+        @click="$router.push('/Detailspage_munic')"
+      >
+        市町村ごとの感染者数
+      </button>
+      <button
+        v-if="msg == '感染者数'"
+        type="button"
+        class="btn btn-outline-primary"
+        @click="$router.push('/Detailspage_tsuyama')"
+      >
+        詳細
+      </button>
     </div>
-    
+  </div>
+
+
+  <form>
     <div class="box27">
       <span class="box-title">{{ msg }}</span>
 
@@ -70,8 +71,8 @@
         checked="checked"
       /><label :for="tsuyamaId" class="tab-label">津山</label>
       <div class="text">
-        {{ infected.tsuyama }}<br />
-        <p class="ueo">{{ infected.data3 }}</p>
+        {{ labelvalue.tsuyama }}<br />
+        <p class="ueo">{{ labelvalue.data3 }}</p>
         <div style="text-align: left" class="btn">
           <button
             v-if="msg == '感染者数'"
@@ -98,8 +99,8 @@
         >岡山</label
       >
       <div class="text">
-        {{ infected.okayama }}<br />
-        <p class="ueo">{{ infected.data2 }}</p>
+        {{ labelvalue.okayama }}<br />
+        <p class="ueo">{{ labelvalue.data2 }}</p>
         <div style="text-align: left" class="btn">
           <button
             v-if="msg == '感染者数'"
@@ -126,8 +127,8 @@
         >全国</label
       >
       <div class="text">
-        {{ infected.zenkoku }}<br />
-        <p class="ueo">{{ infected.data1 }}</p>
+        {{ labelvalue.zenkoku }}<br />
+        <p class="ueo">{{ labelvalue.data1 }}</p>
       </div>
     </div>
   </form>
@@ -139,7 +140,7 @@ export default {
   data() {
     return {
       kansensya: {
-        tsuyama: false,
+        tsuyama: true,
         okayama: false,
         zenkoku: false,
       },
@@ -172,6 +173,25 @@ export default {
       this.kansensya.okayama = false;
       this.kansensya.zenkoku = true;
     },
+    toggleMode(data) {
+      switch (data) {
+        case "tsuyama":
+          this.kansensya.tsuyama = true;
+          this.kansensya.okayama = false;
+          this.kansensya.zenkoku = false;
+          break;
+        case "okayama":
+          this.kansensya.tsuyama = false;
+          this.kansensya.okayama = true;
+          this.kansensya.zenkoku = false;
+          break;
+        case "zenkoku":
+          this.kansensya.tsuyama = false;
+          this.kansensya.okayama = false;
+          this.kansensya.zenkoku = true;
+          break;
+      }
+    },
   },
   props: {
     msg: {
@@ -180,7 +200,7 @@ export default {
     idname: {
       type: String,
     },
-    infected: {
+    labelvalue: {
       type: Object,
     },
   },
