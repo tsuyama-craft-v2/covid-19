@@ -18,20 +18,35 @@
     </section>
     <section class="row">
       <div class="containar" v-if="kansensya.tsuyama">
-        {{ labelvalue.infected_tsuyama }}<br />
-        <p class="ueo">{{ labelvalue.infected_data3 }}</p>
+        {{ lavelValue.infected_tsuyama }}<br />
+        <p class="ueo">{{ lavelValue.infected_data3 }}</p>
       </div>
       <div class="containar" v-if="kansensya.okayama">
-        {{ labelvalue.infected_okayama }}<br />
-        <p class="ueo">{{ labelvalue.infected_data2 }}</p>
+        {{ lavelValue.infected_okayama }}<br />
+        <p class="ueo">{{ lavelValue.infected_data2 }}</p>
       </div>
       <div class="containar" v-if="kansensya.zenkoku">
-        {{ labelvalue.infected_zenkoku }}<br />
-        <p class="ueo">{{ labelvalue.infected_data1 }}</p>
+        {{ lavelValue.infected_zenkoku }}<br />
+        <p class="ueo">{{ lavelValue.infected_data1 }}</p>
       </div>
     </section>
+    
     <section class="row">
-      <section class="containar">死者数</section>
+      <section class="containar">PCR検査数</section>
+    </section>
+    <section class="row">
+      <div class="containar" v-if="kansensya.tsuyama">
+        {{ lavelValue.pcr_tsuyama }}<br />
+        <p class="ueo">{{ lavelValue.pcr_data3 }}</p>
+      </div>
+      <div class="containar" v-if="kansensya.okayama">
+        {{ lavelValue.pcr_okayama }}<br />
+        <p class="ueo">{{ lavelValue.pcr_data2 }}</p>
+      </div>
+      <div class="containar" v-if="kansensya.zenkoku">
+        {{ lavelValue.pcr_zenkoku }}<br />
+        <p class="ueo">{{ lavelValue.pcr_data1 }}</p>
+      </div>
     </section>
 
     <div
@@ -58,7 +73,6 @@
     </div>
   </div>
 
-
   <form>
     <div class="box27">
       <span class="box-title">{{ msg }}</span>
@@ -71,8 +85,8 @@
         checked="checked"
       /><label :for="tsuyamaId" class="tab-label">津山</label>
       <div class="text">
-        {{ labelvalue.tsuyama }}<br />
-        <p class="ueo">{{ labelvalue.data3 }}</p>
+        {{ lavelValue.tsuyama }}<br />
+        <p class="ueo">{{ lavelValue.data3 }}</p>
         <div style="text-align: left" class="btn">
           <button
             v-if="msg == '感染者数'"
@@ -99,8 +113,8 @@
         >岡山</label
       >
       <div class="text">
-        {{ labelvalue.okayama }}<br />
-        <p class="ueo">{{ labelvalue.data2 }}</p>
+        {{ lavelValue.okayama }}<br />
+        <p class="ueo">{{ lavelValue.data2 }}</p>
         <div style="text-align: left" class="btn">
           <button
             v-if="msg == '感染者数'"
@@ -127,8 +141,8 @@
         >全国</label
       >
       <div class="text">
-        {{ labelvalue.zenkoku }}<br />
-        <p class="ueo">{{ labelvalue.data1 }}</p>
+        {{ lavelValue.zenkoku }}<br />
+        <p class="ueo">{{ lavelValue.data1 }}</p>
       </div>
     </div>
   </form>
@@ -200,7 +214,7 @@ export default {
     idname: {
       type: String,
     },
-    labelvalue: {
+    lavelValue: {
       type: Object,
     },
   },
