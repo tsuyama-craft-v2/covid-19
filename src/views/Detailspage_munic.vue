@@ -11,7 +11,7 @@
 
 <script>
 import ChartHorBar from "../components/ChartHorBar.vue"
-import mainmenu from "../components/mainmenu.vue"
+import mainmenu from "../components/MainMenu.vue"
 
 export default {
   components: {

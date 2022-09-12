@@ -10,7 +10,7 @@
 
 <script>
 import ChartBar from "../components/ChartBar.vue"
-import mainmenu from "../components/mainmenu.vue"
+import mainmenu from "../components/MainMenu.vue"
 
 export default {
   components: {

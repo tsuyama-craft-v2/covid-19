@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import mainmenu from "../components/mainmenu.vue";
+import mainmenu from "../components/MainMenu.vue";
 import axios from 'axios';
 import { parse } from 'csv';
 import Encoding from 'encoding-japanese';
