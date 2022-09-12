@@ -13,10 +13,10 @@
         </button>
       </div>
     </section>
-    <section class="row">
+    <section class="row p-1">
       <section class="containar">感染者数</section>
     </section>
-    <section class="row">
+    <section class="row p-1">
       <div class="containar" v-if="kansensya.tsuyama">
         {{ lavelValue.infected_tsuyama }}<br />
         <p class="ueo">{{ lavelValue.infected_data3 }}</p>
@@ -31,10 +31,10 @@
       </div>
     </section>
     
-    <section class="row">
+    <section class="row p-1">
       <section class="containar">PCR検査数</section>
     </section>
-    <section class="row">
+    <section class="row p-1">
       <div class="containar" v-if="kansensya.tsuyama">
         {{ lavelValue.pcr_tsuyama }}<br />
         <p class="ueo">{{ lavelValue.pcr_data3 }}</p>
@@ -47,6 +47,52 @@
         {{ lavelValue.pcr_zenkoku }}<br />
         <p class="ueo">{{ lavelValue.pcr_data1 }}</p>
       </div>
+    </section>
+
+    <section class="row p-1">
+      <section class="containar">死者数</section>
+    </section>
+    <section class="row p-1">
+      <div class="containar" v-if="kansensya.tsuyama">
+        {{ lavelValue.dead_tsuyama }}<br />
+        <p class="ueo">{{ lavelValue.dead_data3 }}</p>
+      </div>
+      <div class="containar" v-if="kansensya.okayama">
+        {{ lavelValue.dead_okayama }}<br />
+        <p class="ueo">{{ lavelValue.dead_data2 }}</p>
+      </div>
+      <div class="containar" v-if="kansensya.zenkoku">
+        {{ lavelValue.dead_zenkoku }}<br />
+        <p class="ueo">{{ lavelValue.dead_data1 }}</p>
+      </div>
+    </section>
+
+    <section class="row p-1">
+      <section class="containar">退院者数</section>
+    </section>
+    <section class="row p-1">
+      <div class="containar" v-if="kansensya.tsuyama">
+        {{ lavelValue.discharge_tsuyama }}<br />
+        <p class="ueo">{{ lavelValue.discharge_data3 }}</p>
+      </div>
+      <div class="containar" v-if="kansensya.okayama">
+        {{ lavelValue.discharge_okayama }}<br />
+        <p class="ueo">{{ lavelValue.discharge_data2 }}</p>
+      </div>
+      <div class="containar" v-if="kansensya.zenkoku">
+        {{ lavelValue.discharge_zenkoku }}<br />
+        <p class="ueo">{{ lavelValue.discharge_data1 }}</p>
+      </div>
+    </section>
+
+    <section class="row p-1">
+      <section class="containar">病床使用数</section>
+    </section>
+    <section class="row p-1">
+      <div class="containar" v-if="kansensya.okayama">
+            {{ lavelValue.bedUse }}/{{ lavelValue.bedAll }}<br />
+            <p class="ueo">{{ lavelValue.dead }}</p>
+          </div>
     </section>
 
     <div
@@ -72,85 +118,11 @@
       </button>
     </div>
   </div>
-
-  <form>
-    <div class="box27">
-      <span class="box-title">{{ msg }}</span>
-
-      <input
-        type="radio"
-        :id="tsuyamaId"
-        name="TAB"
-        class="tab-switch"
-        checked="checked"
-      /><label :for="tsuyamaId" class="tab-label">津山</label>
-      <div class="text">
-        {{ lavelValue.tsuyama }}<br />
-        <p class="ueo">{{ lavelValue.data3 }}</p>
-        <div style="text-align: left" class="btn">
-          <button
-            v-if="msg == '感染者数'"
-            type="button"
-            class="municipalities"
-            @click="$router.push('/Detailspage_munic')"
-          >
-            市町村ごとの感染者数
-          </button>
-          <button
-            v-if="msg == '感染者数'"
-            type="button"
-            class="btn_Detailes"
-            @click="$router.push('/Detailspage_tsuyama')"
-          >
-            詳細
-          </button>
-        </div>
-      </div>
-
-      <input type="radio" :id="okayamaId" name="TAB" class="tab-switch" /><label
-        :for="okayamaId"
-        class="tab-label"
-        >岡山</label
-      >
-      <div class="text">
-        {{ lavelValue.okayama }}<br />
-        <p class="ueo">{{ lavelValue.data2 }}</p>
-        <div style="text-align: left" class="btn">
-          <button
-            v-if="msg == '感染者数'"
-            type="button"
-            class="municipalities"
-            @click="$router.push('/Detailspage_munic')"
-          >
-            市町村ごとの感染者数
-          </button>
-          <button
-            v-if="msg == '感染者数'"
-            type="button"
-            class="btn_Detailes"
-            @click="$router.push('/Detailspage')"
-          >
-            詳細
-          </button>
-        </div>
-      </div>
-
-      <input type="radio" :id="zenkokuId" name="TAB" class="tab-switch" /><label
-        :for="zenkokuId"
-        class="tab-label"
-        >全国</label
-      >
-      <div class="text">
-        {{ lavelValue.zenkoku }}<br />
-        <p class="ueo">{{ lavelValue.data1 }}</p>
-      </div>
-    </div>
-  </form>
 </template>
 
 <script>
 export default {
-  name: "labelbox",
+  name: "LabelBox",
   data() {
     return {
       kansensya: {
@@ -186,25 +158,6 @@ export default {
       this.kansensya.tsuyama = false;
       this.kansensya.okayama = false;
       this.kansensya.zenkoku = true;
-    },
-    toggleMode(data) {
-      switch (data) {
-        case "tsuyama":
-          this.kansensya.tsuyama = true;
-          this.kansensya.okayama = false;
-          this.kansensya.zenkoku = false;
-          break;
-        case "okayama":
-          this.kansensya.tsuyama = false;
-          this.kansensya.okayama = true;
-          this.kansensya.zenkoku = false;
-          break;
-        case "zenkoku":
-          this.kansensya.tsuyama = false;
-          this.kansensya.okayama = false;
-          this.kansensya.zenkoku = true;
-          break;
-      }
     },
   },
   props: {
