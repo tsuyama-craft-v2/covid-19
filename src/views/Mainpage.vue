@@ -1,27 +1,36 @@
 <template>
   <div>
-    <!--<MainMenu current="mainpage"></MainMenu>-->
-    <MainMenu judge="0" />
-    <h1>新型コロナウイルス情報</h1>
+    <MainMenu current="mainpage"></MainMenu>
+    <!--<MainMenu judge="0" />-->
     <div class="containar" v-if="readyToshowMainPage">
-      <div class="row p-3 m-3">
-        <LabelBox
-          class="col-lg-4"
-          msg="感染者数"
-          idname="kansen"
-          :lavelValue="infected"
-        />
-        <div class="col-lg-7 ps-5 ms-5">
-          <ChartBar></ChartBar>
+      <section>
+        <div class="row p-3 m-3">
+          <LabelBox
+            class="col-lg-4 p-0 border border-primary"
+            msg="感染者数"
+            idname="kansen"
+            :lavelValue="infected"
+          />
+          <div class="col-lg-7 ps-lg-5 ms-lg-5">
+            <h1>津山市コロナ感染者詳細情報</h1>
+            <ChartBar></ChartBar>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
     <div v-else class="loader"></div>
+    <div class="row p-3 m-3">
+      <div class="col">
+        <h1>市町村別コロナ感染者数</h1>
+        <ChartHorBar></ChartHorBar>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import ChartBar from "../components/ChartBar.vue";
+import ChartHorBar from "../components/ChartHorBar.vue";
 import LabelBox from "../components/LabelBox.vue";
 //import Detailpage from "../components/Detailpag.vue";
 import MainMenu from "../components/MainMenu.vue";
@@ -48,6 +57,7 @@ export default {
     LabelBox,
     ChartBar,
     MainMenu,
+    ChartHorBar,
     //Detailpage,
   },
   computed: {

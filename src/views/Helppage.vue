@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- <MainMenu current="helppage"></MainMenu>-->
-    <MainMenu judge="2" />
+    <MainMenu current="helppage"></MainMenu>
+    <!--<MainMenu judge="2" />-->
     <h1>感染の疑いがある方へ</h1>
   </div>
   <div class="square">

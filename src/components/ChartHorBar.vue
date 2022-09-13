@@ -1,6 +1,6 @@
 <template>
-  <button id="button1" @click="push1">新規</button>
-  <button id="button2" @click="push2">累計</button>
+  <button type="button" class="btn btn-outline-primary py-1 px-4" id="button1" @click="push1">新規</button>
+  <button type="button" class="btn btn-outline-primary py-1 px-4" id="button2" @click="push2">累計</button>
 
   <div class=HorChart>
     <!-- <canvas v-if="isLarge == true" id="chart" height="100" width="300"></canvas> 

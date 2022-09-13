@@ -1,6 +1,6 @@
 <template>
   <div class="containar-lg">
-    <section class="row">
+    <section class="row p-0">
       <div class="btn-group" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-primary" @click="toggleTsuyama()">
           津山
@@ -13,38 +13,38 @@
         </button>
       </div>
     </section>
-    <section class="row p-1">
+    <section class="row m-1">
       <section class="containar">感染者数</section>
     </section>
-    <section class="row p-1">
+    <section class="row mx-1">
       <div class="containar" v-if="kansensya.tsuyama">
-        {{ lavelValue.infected_tsuyama }}<br />
+        <p class="lead">{{ lavelValue.infected_tsuyama }}<br /></p>
         <p class="ueo">{{ lavelValue.infected_data3 }}</p>
       </div>
       <div class="containar" v-if="kansensya.okayama">
-        {{ lavelValue.infected_okayama }}<br />
+       <p class="lead">{{ lavelValue.infected_okayama }}<br /></p>
         <p class="ueo">{{ lavelValue.infected_data2 }}</p>
       </div>
       <div class="containar" v-if="kansensya.zenkoku">
-        {{ lavelValue.infected_zenkoku }}<br />
+        <p class="lead">{{ lavelValue.infected_zenkoku }}<br /></p>
         <p class="ueo">{{ lavelValue.infected_data1 }}</p>
       </div>
     </section>
     
-    <section class="row p-1">
+    <section class="row m-1">
       <section class="containar">PCR検査数</section>
     </section>
-    <section class="row p-1">
+    <section class="row mx-1">
       <div class="containar" v-if="kansensya.tsuyama">
-        {{ lavelValue.pcr_tsuyama }}<br />
+        <p class="lead">{{ lavelValue.pcr_tsuyama }}<br /></p>
         <p class="ueo">{{ lavelValue.pcr_data3 }}</p>
       </div>
       <div class="containar" v-if="kansensya.okayama">
-        {{ lavelValue.pcr_okayama }}<br />
+        <p class="lead">{{ lavelValue.pcr_okayama }}<br /></p>
         <p class="ueo">{{ lavelValue.pcr_data2 }}</p>
       </div>
       <div class="containar" v-if="kansensya.zenkoku">
-        {{ lavelValue.pcr_zenkoku }}<br />
+        <p class="lead">{{ lavelValue.pcr_zenkoku }}<br /></p>
         <p class="ueo">{{ lavelValue.pcr_data1 }}</p>
       </div>
     </section>
@@ -52,17 +52,17 @@
     <section class="row p-1">
       <section class="containar">死者数</section>
     </section>
-    <section class="row p-1">
+    <section class="row px-1">
       <div class="containar" v-if="kansensya.tsuyama">
-        {{ lavelValue.dead_tsuyama }}<br />
+        <p class="lead">{{ lavelValue.dead_tsuyama }}<br /></p>
         <p class="ueo">{{ lavelValue.dead_data3 }}</p>
       </div>
       <div class="containar" v-if="kansensya.okayama">
-        {{ lavelValue.dead_okayama }}<br />
+        <p class="lead">{{ lavelValue.dead_okayama }}<br /></p>
         <p class="ueo">{{ lavelValue.dead_data2 }}</p>
       </div>
       <div class="containar" v-if="kansensya.zenkoku">
-        {{ lavelValue.dead_zenkoku }}<br />
+        <p class="lead">{{ lavelValue.dead_zenkoku }}<br /></p>
         <p class="ueo">{{ lavelValue.dead_data1 }}</p>
       </div>
     </section>
@@ -70,17 +70,17 @@
     <section class="row p-1">
       <section class="containar">退院者数</section>
     </section>
-    <section class="row p-1">
+    <section class="row px-1">
       <div class="containar" v-if="kansensya.tsuyama">
-        {{ lavelValue.discharge_tsuyama }}<br />
+        <p class="lead">{{ lavelValue.discharge_tsuyama }}<br /></p>
         <p class="ueo">{{ lavelValue.discharge_data3 }}</p>
       </div>
       <div class="containar" v-if="kansensya.okayama">
-        {{ lavelValue.discharge_okayama }}<br />
-        <p class="ueo">{{ lavelValue.discharge_data2 }}</p>
+        <p class="lead">{{ lavelValue.discharge_okayama }}<br /></p>
+        <p class="ueo">{{ lavelValue.dead_data2 }}</p>
       </div>
       <div class="containar" v-if="kansensya.zenkoku">
-        {{ lavelValue.discharge_zenkoku }}<br />
+        <p class="lead">{{ lavelValue.discharge_zenkoku }}<br /></p>
         <p class="ueo">{{ lavelValue.discharge_data1 }}</p>
       </div>
     </section>
@@ -88,9 +88,9 @@
     <section class="row p-1">
       <section class="containar">病床使用数</section>
     </section>
-    <section class="row p-1">
+    <section class="row px-1">
       <div class="containar" v-if="kansensya.okayama">
-            {{ lavelValue.bedUse }}/{{ lavelValue.bedAll }}<br />
+            <p class="lead">{{ lavelValue.bedUse }}/{{ lavelValue.bedAll }}<br /></p>
             <p class="ueo">{{ lavelValue.dead }}</p>
           </div>
     </section>
@@ -175,6 +175,7 @@ export default {
 </script>
 
 <style>
+/*
 .box27 {
   position: relative;
   margin: 3rem auto;
@@ -237,10 +238,10 @@ export default {
   font-family: MS sans-serif;
   margin-top: 1em;
 }
-.ueo {
+/*.ueo {
   font-size: 0.8rem;
   text-align: center;
-}
+}*/
 .btn .municipalities {
   padding: 5px 10px;
   margin-right: 5%;

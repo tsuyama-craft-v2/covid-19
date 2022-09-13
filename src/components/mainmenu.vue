@@ -1,5 +1,54 @@
 <template>
-  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CRAFT</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item me-auto">
+            <a
+            class="nav-link active"
+            @click="switchPage('Mainpage')"
+            v-bind:class="{ active: current == 'mainpage' }"
+            aria-current="page"
+            href="#"
+            >新型コロナウイルス情報</a
+          >
+          </li>
+          <li class="nav-item me-auto">
+            <a
+            class="nav-link"
+            @click="switchPage('Shisetupage')"
+            v-bind:class="{ active: current == 'shisetupage' }"
+            >施設情報</a
+          >
+          </li>
+          <li class="nav-item me-auto">
+            <a
+            class="nav-link"
+            @click="switchPage('Helppage')"
+            v-bind:class="{ active: current == 'helppage' }"
+            >感染の疑いがある方</a
+          >
+          </li>
+        </ul>
+        <span class="navbar-text me-2 pe-2">
+        Tiếng Việt
+      </span>
+      </div>
+    </div>
+  </nav>
+  <!--<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">CRAFT</a>
       <button
@@ -27,21 +76,20 @@
             class="nav-link me-auto"
             @click="switchPage('Shisetupage')"
             v-bind:class="{ active: current == 'shisetupage' }"
-            href="/Shisetupage"
             >施設情報</a
           >
           <a
             class="nav-link me-auto"
             @click="switchPage('Helppage')"
             v-bind:class="{ active: current == 'helppage' }"
-            href="#"
             >感染の疑いがある方</a
           >
+          <a class="nav-link ms-auto" href="#">Tiếng Việt</a>
         </div>
       </div>
     </div>
-  </nav> -->
-  <nav>
+  </nav>-->
+  <!--<nav>
     <ul v-if="judge == 0">
       <li class="main">
         <router-link to="/">新型コロナウイルス最新情報</router-link>
@@ -64,7 +112,7 @@
       </li>
     </ul>
     <router-view />
-  </nav>
+  </nav>-->
 </template>
 
 <script>
@@ -84,6 +132,7 @@ export default {
 </script>
 
 <style>
+/*
 nav {
   border-bottom: 1px solid #ccc;
 }
@@ -125,5 +174,5 @@ nav ul li.main {
 nav ul li.main a {
   border-bottom: 5px solid #00b0f0;
   color: #00b0f0;
-}
+}*/
 </style>
