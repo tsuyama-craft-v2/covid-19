@@ -1,21 +1,22 @@
 <template>
   <mainmenu judge=0 />
   <div class="pagelink">
-    <router-link to="/">新型コロナウイルス情報</router-link><a>＞津山市コロナ感染者詳細情報</a>
+    <router-link to="/">新型コロナウイルス情報</router-link><a>＞市町村別コロナ感染者数</a>
   </div>
-  <h1>津山市コロナ感染者詳細情報</h1>
-  <ChartBar></ChartBar>
+  <h1>市町村別コロナ感染者数</h1>
+  <!--<p>日付を入れたい</p>-->
+  <ChartHorBar></ChartHorBar>
 </template>
 
 
 <script>
-import ChartBar from "../components/ChartBar.vue"
+import ChartHorBar from "../components/ChartHorBar.vue"
 import mainmenu from "../components/MainMenu.vue"
 
 export default {
   components: {
-    ChartBar,
-    mainmenu
+    ChartHorBar,
+    mainmenu,
   },
 };
 </script>
@@ -42,5 +43,11 @@ h1{
   .pagelink{
     font-size: 14px;
   }
+}
+
+p{
+  padding-right: 5%;
+  text-align: right;
+  font-size: 20px;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <mainmenu judge=2 />
+    <MainMenu current="helppage"></MainMenu>
+    <!--<MainMenu judge="2" />-->
     <h1>感染の疑いがある方へ</h1>
   </div>
   <div class="square">
@@ -46,12 +47,12 @@
 </template>
 
 <script>
-import mainmenu from '../components/mainmenu.vue'
+import MainMenu from '../components/MainMenu.vue'
 
 export default {
-  name: 'Heplpage',
+  name: 'HeplPage',
   components: {
-    mainmenu
+    MainMenu
   },
   data: function(){
       return{

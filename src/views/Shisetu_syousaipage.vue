@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import mainmenu from "../components/mainmenu.vue";
+import mainmenu from "../components/MainMenu.vue";
 
 export default {
   name: "Shisetu_syousaipage",

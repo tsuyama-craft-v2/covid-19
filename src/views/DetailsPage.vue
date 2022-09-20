@@ -1,5 +1,5 @@
 <template>
-  <mainmenu judge=0 />
+  <MainMenu judge=0 />
   <div class="pagelink">
     <router-link to="/">新型コロナウイルス情報</router-link><a>＞岡山県コロナ感染者詳細情報</a>
   </div>
@@ -34,7 +34,7 @@
 
 <script>
 import Chart from "chart.js";
-import mainmenu from "../components/mainmenu.vue";
+import MainMenu from "../components/MainMenu.vue";
 
 function DataSet(data, label, count) {
   const search = [];
@@ -71,7 +71,7 @@ function ChangeLabelsDatasets(chart, label, newdata) {
 export default {
   name: "Detailpage",
   components: { 
-    mainmenu,
+    MainMenu,
    },
   data: function () {
     const columns = {

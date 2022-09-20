@@ -1,6 +1,7 @@
 <template>
   <div>
-    <mainmenu judge=1 />
+    <MainMenu current="shisetupage"></MainMenu>
+    <!--<MainMenu judge="1" />-->
     <h1>施設情報</h1>
   </div>
   <div class="flex2">
@@ -20,12 +21,12 @@
 </template>
 
 <script>
-import mainmenu from '../components/mainmenu.vue'
+import MainMenu from '../components/MainMenu.vue'
 
 export default {
-  name: 'Shisetupage',
+  name: 'ShisetuPage',
   components: {
-    mainmenu,
+    MainMenu,
   }
 }
 </script>

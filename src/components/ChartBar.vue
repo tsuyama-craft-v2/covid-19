@@ -1,8 +1,8 @@
 <template>
-  <button type="button" v-on:click="Back" :disabled="isTestDisabledBack">前</button>
-  <button type="button" v-on:click="Next" :disabled="isTestDisabledNext">次</button>
+  <button type="button" class="btn btn-outline-primary py-1 px-4" v-on:click="Back" :disabled="isTestDisabledBack">前</button>
+  <button type="button" class="btn btn-outline-primary py-1 px-4" v-on:click="Next" :disabled="isTestDisabledNext">次</button>
    <div class=Chart>
-    <canvas v-if="isLarge == true" id="chart" height="100" width="300"></canvas>
+    <canvas v-if="isLarge == true" id="chart" height="200" width="300"></canvas>
     <canvas v-else-if="isLarge == false" id="chart"></canvas>
   </div>
 </template>
