@@ -1,7 +1,7 @@
 
-import MainPage from "../views/MainPage.vue";
-import ShisetuPage from "../views/ShisetuPage.vue";
-import HelpPage from "../views/HelpPage.vue";
+import MainPage from "../views/Mainpage.vue";
+import ShisetuPage from "../views/Shisetupage.vue";
+import HelpPage from "../views/Helppage.vue";
 
 import { createRouter, createWebHashHistory } from 'vue-router'
 
