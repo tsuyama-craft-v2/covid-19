@@ -18,8 +18,20 @@
         </div>
       </section>
     </div>
-    <div v-else class="loader"></div>
-    <div class="row p-3 m-3">
+    <div
+      v-else
+      class="align-items-center d-flex justify-content-center"
+      style="height: 400px"
+    >
+      <div
+        class="spinner-border text-primary"
+        style="width: 6rem; height: 6rem"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div id="late" class="row p-3 m-3">
       <div class="col">
         <h1>市町村別コロナ感染者数</h1>
         <ChartHorBar></ChartHorBar>
@@ -349,7 +361,7 @@ export default {
       };
     },
   },
-  mounted: function () {
+  created() {
     this.get_csv(
       "https://tsuyama-craft.github.io/covid-19/data/kansenshasuu0420.csv",
       true,
@@ -396,6 +408,7 @@ export default {
     this.lastupdata();
   },
   methods: {
+    delayMethod() {},
     lastupdata: function () {
       axios
         .get("https://www.stopcovid19.jp/data/covid19japan.json")
@@ -582,6 +595,19 @@ h1 {
   87.5% {
     box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em,
       0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+#late {
+  opacity: 0;
+  animation: appeare 0s ease 6s 1 normal forwards running;
+}
+
+@keyframes appeare {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>
