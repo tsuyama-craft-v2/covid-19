@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.4e257bddcd6d7f95ba794e11e03b3aa3.js"
+  "precache-manifest.5cf971583572ec0ff1def32e418009eb.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "craft"});
