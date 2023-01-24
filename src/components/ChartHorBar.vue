@@ -3,9 +3,9 @@
   <button type="button" class="btn btn-outline-primary py-1 px-4" id="button2" @click="push2">累計</button>
 
   <div class=HorChart>
-    <!-- <canvas v-if="isLarge == true" id="chart" height="100" width="300"></canvas> 
+    <!--<canvas v-if="isLarge == true" id="chart" height="100" width="300"></canvas> 
     <canvas v-else-if="isLarge == false" id="chart"></canvas>-->
-    <canvas id="chart"></canvas>
+    <canvas id="horchart"></canvas>
   </div>
   
 </template>
@@ -204,7 +204,7 @@ export default {
       if (this.chart) {
         this.chart.destroy();
       }
-      const ctx = document.getElementById("chart").getContext("2d");
+      const ctx = document.getElementById("horchart").getContext("2d");
       this.chart = new Chart(ctx, {
         type: 'horizontalBar',
         data: {
@@ -287,8 +287,8 @@ export default {
 </script>
 
 <style>
-.HorChart{
+/*.HorChart{
   width: 95%;
   margin: 0 auto;
-}
+}*/
 </style>
