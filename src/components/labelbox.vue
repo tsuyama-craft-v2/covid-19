@@ -22,7 +22,7 @@
         <p class="ueo">{{ lavelValue.infected_data3 }}</p>
       </div>
       <div class="containar" v-if="kansensya.okayama">
-       <p class="lead">{{ lavelValue.infected_okayama }}<br /></p>
+        <p class="lead">{{ lavelValue.infected_okayama }}<br /></p>
         <p class="ueo">{{ lavelValue.infected_data2 }}</p>
       </div>
       <div class="containar" v-if="kansensya.zenkoku">
@@ -30,7 +30,7 @@
         <p class="ueo">{{ lavelValue.infected_data1 }}</p>
       </div>
     </section>
-    
+
     <section class="row m-1">
       <section class="containar">PCR検査数</section>
     </section>
@@ -90,12 +90,17 @@
     </section>
     <section class="row px-1">
       <div class="containar" v-if="kansensya.okayama">
-            <p class="lead">{{ lavelValue.bedUse }}/{{ lavelValue.bedAll }}<br /></p>
-            <p class="ueo">{{ lavelValue.dead }}</p>
-          </div>
+        <p class="lead">
+          {{ lavelValue.bedUse }}/{{ lavelValue.bedAll }}<br />
+        </p>
+        <p class="ueo">{{ lavelValue.dead }}</p>
+      </div>
+      <div class="containar" v-if="kansensya.tsuyama||kansensya.zenkoku">
+        <p class="lead">No data</p>
+      </div>
     </section>
 
-    <div
+    <!--<div
       style="text-align: left"
       class="btn"
       v-if="kansensya.tsuyama || kansensya.okayama"
@@ -116,7 +121,7 @@
       >
         詳細
       </button>
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -148,16 +153,34 @@ export default {
       this.kansensya.tsuyama = true;
       this.kansensya.okayama = false;
       this.kansensya.zenkoku = false;
+      this.$emit(
+        "toggle",
+        this.kansensya.tsuyama,
+        this.kansensya.okayama,
+        this.kansensya.zenkoku
+      );
     },
     toggleOkayama() {
       this.kansensya.tsuyama = false;
       this.kansensya.okayama = true;
       this.kansensya.zenkoku = false;
+      this.$emit(
+        "toggle",
+        this.kansensya.tsuyama,
+        this.kansensya.okayama,
+        this.kansensya.zenkoku
+      );
     },
     toggleZenkoku() {
       this.kansensya.tsuyama = false;
       this.kansensya.okayama = false;
       this.kansensya.zenkoku = true;
+      this.$emit(
+        "toggle",
+        this.kansensya.tsuyama,
+        this.kansensya.okayama,
+        this.kansensya.zenkoku
+      );
     },
   },
   props: {
