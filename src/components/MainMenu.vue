@@ -14,44 +14,37 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item me-auto">
             <a
-              class="nav-link active"
-              @click="switchPage('Mainpage')"
-              v-bind:class="{ active: current == 'mainpage' }"
-              aria-current="page"
-              href="#"
-              >新型コロナウイルス情報</a
-            >
+            class="nav-link active"
+            @click="switchPage('Mainpage')"
+            v-bind:class="{ active: current == 'mainpage' }"
+            aria-current="page"
+            href="#"
+            >新型コロナウイルス情報</a
+          >
           </li>
-          <li class="nav-item">
+          <li class="nav-item me-auto">
             <a
-              class="nav-link"
-              @click="switchPage('Shisetupage')"
-              v-bind:class="{ active: current == 'shisetupage' }"
-              >施設情報</a
-            >
+            class="nav-link"
+            @click="switchPage('Shisetupage')"
+            v-bind:class="{ active: current == 'shisetupage' }"
+            >施設情報</a
+          >
           </li>
-          <li class="nav-item">
+          <li class="nav-item me-auto">
             <a
-              class="nav-link"
-              @click="switchPage('Helppage')"
-              v-bind:class="{ active: current == 'helppage' }"
-              >感染の疑いがある方</a
-            >
-          </li>
-        </ul>
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              @click="switchPage('Mainpage_Vietnam')"
-              v-bind:class="{ active: current == 'mainpage_vietnam' }"
-              >Tiếng Việt</a
-            >
+            class="nav-link"
+            @click="switchPage('Helppage')"
+            v-bind:class="{ active: current == 'helppage' }"
+            >感染の疑いがある方</a
+          >
           </li>
         </ul>
+        <span class="navbar-text me-2 pe-2">
+        Tiếng Việt
+      </span>
       </div>
     </div>
   </nav>

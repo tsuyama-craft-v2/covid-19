@@ -1,6 +1,6 @@
 <template>
-  <button type="button" class="btn btn-outline-primary py-1 px-4" id="button1" @click="push1">新規</button>
-  <button type="button" class="btn btn-outline-primary py-1 px-4" id="button2" @click="push2">累計</button>
+  <button type="button" class="btn btn-outline-primary py-1 px-4" id="button1" @click="push1">Mới</button>
+  <button type="button" class="btn btn-outline-primary py-1 px-4" id="button2" @click="push2">Tích lũy</button>
 
   <div class=HorChart>
     <!--<canvas v-if="isLarge == true" id="chart" height="100" width="300"></canvas> 
@@ -211,7 +211,7 @@ export default {
           labels: ["津山市","鏡野町","勝央町","奈義町","久米南町","美咲町","岡山市","倉敷市","玉野市","笠岡市","井原市","総社市","高梁市","新見市",
                    "備前市","瀬戸内市","赤磐市","真庭市","美作市","浅口市","和気町","早島町","里庄町","矢掛町","新庄村","西粟倉村","吉備中央町"],
           datasets:[{
-            label: "感染者数",
+            label: "Tổng nhiễm",
             data: filteredDataSet.NewData,
             backgroundColor: "rgba(75, 192, 192, 0.2)"/*,ChartColor.backgroundColor*/,
             borderColor: "rgb(75, 192, 192)"/*,ChartColor.borderColor*/,

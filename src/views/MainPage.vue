@@ -1,49 +1,30 @@
 <template>
-  <MainMenu current="mainpage"></MainMenu>
-  <!--<MainMenu judge="0" />-->
-  <div class="containar" v-if="readyToshowMainPage">
-    <section>
-      <div class="row p-3 m-3">
-        <LabelBox
-          class="col-lg-4 p-0 border border-primary"
-          msg="感染者数"
-          idname="kansen"
-          :lavelValue="infected"
-          @toggle="toggle"
-        />
-        <div class="col-lg-7 ps-lg-5 ms-lg-5" v-if="kansensya.tsuyama||kansensya.zenkoku">
-          <p class="h2 text-primary p-2">津山市コロナ感染者詳細情報</p>
-          <ChartBar/>
+  <div>
+    <MainMenu current="mainpage"></MainMenu>
+    <!--<MainMenu judge="0" />-->
+    <div class="containar" v-if="readyToshowMainPage">
+      <section>
+        <div class="row p-3 m-3">
+          <LabelBox
+            class="col-lg-4 p-0 border border-primary"
+            msg="感染者数"
+            idname="kansen"
+            :lavelValue="infected"
+          />
+          <div class="col-lg-7 ps-lg-5 ms-lg-5">
+            <h1>津山市コロナ感染者詳細情報</h1>
+            <ChartBar></ChartBar>
+          </div>
         </div>
-        <div class="col-lg-7 ps-lg-5 ms-lg-5" v-if="kansensya.okayama">
-          <p class="h2 text-primary p-2">岡山県コロナ感染者詳細情報</p>
-          <DetailPage/>
-        </div>
-      </div>
-    </section>
-  </div>
-  <div
-    v-else
-    class="align-items-center d-flex justify-content-center"
-    style="height: 400px"
-  >
-    <div
-      class="spinner-border text-primary"
-      style="width: 6rem; height: 6rem"
-      role="status"
-    >
-      <span class="visually-hidden">Loading...</span>
+      </section>
     </div>
-  </div>
-  <div class="containar" v-if="readyToshowMainPage">
-    <section>
-      <div class="row p-3 m-3">
-        <div class="col">
-          <p class="h2 text-primary p-2">市町村別コロナ感染者数</p>
-          <ChartHorBar/>
-        </div>
+    <div v-else class="loader"></div>
+    <div class="row p-3 m-3">
+      <div class="col">
+        <h1>市町村別コロナ感染者数</h1>
+        <ChartHorBar></ChartHorBar>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 
@@ -51,11 +32,11 @@
 import ChartBar from "../components/ChartBar.vue";
 import ChartHorBar from "../components/ChartHorBar.vue";
 import LabelBox from "../components/labelbox.vue";
+//import Detailpage from "../components/Detailpag.vue";
 import MainMenu from "../components/mainmenu.vue";
 import axios from "axios";
 import { parse } from "csv";
 import Encoding from "encoding-japanese";
-import DetailPage from '../components/DetailPage.vue';
 
 export default {
   name: "MainPage",
@@ -70,11 +51,6 @@ export default {
       Zenkoku: [],
       last: [],
       //ZenkokuDetail: [],
-      kansensya: {
-        tsuyama: true,
-        okayama: false,
-        zenkoku: false,
-      },
     };
   },
   components: {
@@ -82,7 +58,7 @@ export default {
     ChartBar,
     MainMenu,
     ChartHorBar,
-    DetailPage,
+    //Detailpage,
   },
   computed: {
     readyToshowMainPage: function () {
@@ -373,7 +349,7 @@ export default {
       };
     },
   },
-  created() {
+  mounted: function () {
     this.get_csv(
       "https://tsuyama-craft.github.io/covid-19/data/kansenshasuu0420.csv",
       true,
@@ -420,11 +396,6 @@ export default {
     this.lastupdata();
   },
   methods: {
-    toggle(...args){
-      [this.kansensya.tsuyama, this.kansensya.okayama, this.kansensya.zenkoku] = args
-      console.log(this.kansensya.tsuyama,this.kansensya.okayama,this.kansensya.zenkoku)
-    },
-    delayMethod() {},
     lastupdata: function () {
       axios
         .get("https://www.stopcovid19.jp/data/covid19japan.json")
@@ -492,7 +463,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/*.box {
+.box {
   margin: 100px;
   padding: 100px;
 }
@@ -611,19 +582,6 @@ h1 {
   87.5% {
     box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em,
       0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
-  }
-}*/
-#late {
-  opacity: 0;
-  animation: appeare 0s ease 2s 1 normal forwards running;
-}
-
-@keyframes appeare {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 </style>

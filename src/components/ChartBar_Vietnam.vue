@@ -1,6 +1,6 @@
 <template>
-  <button type="button" class="btn btn-outline-primary py-1 px-4" v-on:click="Back" :disabled="isTestDisabledBack">前</button>
-  <button type="button" class="btn btn-outline-primary py-1 px-4" v-on:click="Next" :disabled="isTestDisabledNext">次</button>
+  <button type="button" class="btn btn-outline-primary py-1 px-4" v-on:click="Back" :disabled="isTestDisabledBack">Trước</button>
+  <button type="button" class="btn btn-outline-primary py-1 px-4" v-on:click="Next" :disabled="isTestDisabledNext">Kế tiếp</button>
    <div class=Chart>
     <!--<canvas v-if="isLarge == true" id="chart" height="200" width="300"></canvas>
     <canvas v-else-if="isLarge == false" id="chart"></canvas>-->
@@ -123,7 +123,7 @@ export default {
         data:{
           labels: filteredDataSet.label,
           datasets: [{
-            label: "新規感染者数",
+            label: "Nhiễm mới",
             data: filteredDataSet.data,
             backgroundColor: "rgba(54, 162, 235, 0.2)",
             borderColor: "rgb(54, 162, 235)",
