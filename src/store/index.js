@@ -23,6 +23,7 @@ export default createStore({
   modules: {
   },
   plugins: [createPersistedState({
-    storage: window.sessionStorage
+    key: 'covid-19App',
+    storage: window.sessionStorage//ssesionstorageが一杯のためdomでエラーが発生している。
   })]
 })

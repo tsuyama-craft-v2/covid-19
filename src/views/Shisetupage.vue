@@ -1,7 +1,7 @@
 <template>
   <div>
-    <MainMenu current="shisetupage"></MainMenu>
-    <!--<MainMenu judge="1" />-->
+    <!--<MainMenu current="shisetupage"></MainMenu>-->
+    <MainMenu judge="1" />
     <h1>施設情報</h1>
   </div>
   <div class="flex2">
@@ -24,7 +24,7 @@
 import MainMenu from '../components/mainmenu.vue'
 
 export default {
-  name: 'ShisetuPage',
+  name: 'Shisetupage',
   components: {
     MainMenu,
   }

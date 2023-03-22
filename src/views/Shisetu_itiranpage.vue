@@ -1,5 +1,5 @@
 <template>
-  <mainmenu judge=1 />
+  <MainMenu judge=1 />
   <div class="pagelink">
     <router-link to="/shisetupage">施設情報</router-link>
     <a>＞</a><a>津山市施設一覧</a>
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import mainmenu from "../components/mainmenu.vue";
+import MainMenu from "../components/mainmenu.vue";
 import axios from 'axios';
 import { parse } from 'csv';
 import Encoding from 'encoding-japanese';
@@ -61,7 +61,7 @@ export default {
     }
   },
   components: { 
-      mainmenu,
+      MainMenu,
   },
   data: function() {
     return {

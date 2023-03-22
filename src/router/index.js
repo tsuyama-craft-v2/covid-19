@@ -1,7 +1,9 @@
 
-import MainPage from "../views/MainPage.vue";
-import ShisetuPage from "../views/ShisetuPage.vue";
-import HelpPage from "../views/HelpPage.vue";
+import MainPage from "../views/Mainpage.vue";
+import ShisetuPage from "../views/Shisetupage.vue";
+import HelpPage from "../views/Helppage.vue";
+import MainPage_Vietnam from "../views/MainPage_Vietnam.vue";
+//import Shisetu_itiranpage from "../views/Shisetu_itiranpage";
 
 import { createRouter, createWebHashHistory } from 'vue-router'
 
@@ -11,6 +13,11 @@ const routes = [
     name: 'Mainpage',
     component: MainPage,
     //component: () => import('../views/MainPage.vue')
+  },
+  {
+    path: '/Mainpage_Vietnam',
+    name: 'Mainpage_Vietnam',
+    component: MainPage_Vietnam,
   },
   {
     path: '/Detailspage',
@@ -40,15 +47,16 @@ const routes = [
     //component: () => import('../views/HelpPage.vue')
   },
   {
-    path: '/Shisetupage/itiranpage',
+    path: '/shisetupage/itiranpage',
     name: 'Shisetu_itiranpage',
-    //component: () => import('../views/Shisetu_itiranpage.vue'),
+    //component: Shisetu_itiranpage,
+    component: () => import('../views/Shisetu_itiranpage.vue'),
     props: true
   },
   {
-    path: '/Shisetupage/itiran/syousai',
+    path: '/shisetupage/itiran/syousai',
     name: 'Shisetu_syousaipage',
-    //component: () => import('../views/Shisetu_syousaipage.vue'),
+    component: () => import('../views/Shisetu_syousaipage.vue'),
     props: true
   },
 ]

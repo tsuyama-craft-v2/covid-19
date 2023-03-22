@@ -1,22 +1,17 @@
 <template>
-  <mainmenu judge="0" />
-  <div class="pagelink">
-    <router-link to="/">新型コロナウイルス情報</router-link
-    ><a>＞岡山県コロナ感染者詳細情報</a>
-  </div>
-  <h1 v-if="$store.state.detaildata.length > 0">岡山県コロナ感染者詳細情報</h1>
-  <button type="button" v-on:click="Back" :disabled="isTestDisabledBack">
+  <button type="button" class="btn btn-outline-primary py-1 px-4" v-on:click="Back" :disabled="isTestDisabledBack">
     前
   </button>
-  <button type="button" v-on:click="Next" :disabled="isTestDisabledNext">
+  <button type="button" class="btn btn-outline-primary py-1 px-4" v-on:click="Next" :disabled="isTestDisabledNext">
     次
   </button>
-  <div class="Chart">
-    <canvas v-if="isLarge == true" id="chart" height="100" width="300"></canvas>
-    <canvas canvas v-else-if="isLarge == false" id="chart"></canvas>
+  <div class="DetailChart">
+    <!--<canvas v-if="isLarge == true" id="chart" height="100" width="300"></canvas>
+    <canvas canvas v-else-if="isLarge == false" id="chart"></canvas>-->
+    <canvas id="detailchart"></canvas>
   </div>
-  <br /><br />
-  <div class="filter">
+  <!--<br /><br />-->
+  <!--<div class="filter">
     <span style="white-space: nowrap" class="filterkeyword"
       >絞り込み<input type="text" v-model="keyword"
     /></span>
@@ -36,7 +31,7 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table>-->
 </template>
 
 <script>
@@ -193,7 +188,7 @@ export default {
         },
       };
       this.Chart = new Chart(
-        document.getElementById("chart").getContext("2d"),
+        document.getElementById("detailchart").getContext("2d"),
         config
       );
     },
